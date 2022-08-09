@@ -1,0 +1,17 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.header {
+  font-size: 35px;
+  font-weight: 900;
+  padding: 10px;
+  justify-content: center;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
