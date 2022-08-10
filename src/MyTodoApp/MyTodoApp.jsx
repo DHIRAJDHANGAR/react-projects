@@ -1,21 +1,13 @@
 import { Component, useState } from "react";
 import { Button, Col, Container, Input, Row } from "reactstrap";
+import DeleteButton from "./DeleteButton";
 import InputText from "./InputText";
-import "./MyTodo.css";
+import "./MyTodoApp.css";
 
-const MyTodo = () => {
+const MyTodoApp = () => {
   const [todo, setTodo] = useState([]);
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [newTodoDiscription, setTodoDiscription] = useState("");
-
-  //handleToDoTitle
-  // function handleToDoTitle(e) {
-  //   setNewTodoTitle(e.target.value);
-  // }
-  //handleToDoDiscription
-  // function handleToDoDiscription(e) {
-  //   setTodoDiscription(e.target.value);
-  // }
 
   const handleAddTodo = () => {
     const todoElement = {
@@ -47,17 +39,7 @@ const MyTodo = () => {
         <Row className="bodyContainer">
           <Row className="titleContainer">
             <label className="lebal">Title</label>
-            {/* <Input
-              type="text"
-              placeholder="Enter title"
-              name="title"
-              value={newTodoTitle}
-              // onChange={handleToDoTitle}
-              onTitleChnage={(e) => {
-                setNewTodoTitle(e.target.value);
-              }}
-              className="titleInput"
-            /> */}
+            {/* InputText import for title */}
             <InputText
               type="text"
               value={newTodoTitle}
@@ -68,17 +50,7 @@ const MyTodo = () => {
           </Row>
           <Row>
             <label className="lebal">Discription</label>
-            {/* <Input
-              type="text"
-              placeholder="Enter discription"
-              name="discription"
-              value={newTodoDiscription}
-              // onChange={handleToDoDiscription}
-              onChange={(e) => {
-                setTodoDiscription(e.target.value);
-              }}
-              className="discriptionInput"
-            /> */}
+            {/* InputText import for discription */}
             <InputText
               type="text"
               value={newTodoDiscription}
@@ -96,7 +68,6 @@ const MyTodo = () => {
         <Row>
           <p className="lebal">Todo List</p>
         </Row>
-
         {/* Print Todo List Element */}
         <Row className="printTodoList">
           {todo.map((item) => {
@@ -111,12 +82,10 @@ const MyTodo = () => {
                     <Button className="button">EDIT</Button>
                   </Col>
                   <Col>
-                    <Button
+                    <DeleteButton
+                      label="DELETE"
                       onClick={() => handleDeleteTodo(item.id)}
-                      className="button"
-                    >
-                      DELETE
-                    </Button>
+                    />
                   </Col>
                 </Row>
               </Col>
@@ -128,4 +97,4 @@ const MyTodo = () => {
   );
 };
 
-export default MyTodo;
+export default MyTodoApp;

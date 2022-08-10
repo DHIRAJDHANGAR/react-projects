@@ -1,0 +1,74 @@
+body {
+  background-color: rgb(16, 16, 16);
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+.parentContainer {
+  padding: 10px;
+}
+.header {
+  border: 1px solid #fff;
+  border-radius: 20px 0 20px 0;
+}
+.bodyContainer {
+  padding: 10px;
+}
+.lebal {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 5px;
+}
+/* .titleInput {
+  border: 2px solid rgb(5, 248, 228);
+  border-radius: 20px 0 20px 0;
+  height: 10vh;
+} */
+.discriptionInput {
+  border: 2px solid rgb(5, 248, 228);
+  border-radius: 20px 0 20px 0;
+  height: 15vh;
+  resize: none;
+}
+.buttonSave {
+  justify-content: center;
+}
+.saveBtn {
+  border: 3px solid rgb(249, 44, 82);
+  width: 100px;
+  border-radius: 20px 0 20px 0;
+  background-color: rgb(16, 16, 16);
+  font-weight: 600;
+}
+.saveBtn:hover {
+  border: 3px solid rgb(12, 244, 140);
+  background-color: rgb(16, 16, 16);
+}
+.saveBtn:visited {
+  border: 3px solid rgb(244, 12, 12);
+  background-color: rgb(16, 16, 16);
+}
+.printTodoList {
+  display: flex;
+  gap: 5px;
+}
+.todoCard {
+  border: 1px solid #fff;
+}
+.cardSection,
+.cardBtn {
+  padding: 10px;
+}
+.cardTitle {
+  font-size: 20px;
+}
+.cardDiscription {
+  font-style: italic;
+}
+.button {
+  width: 70px;
+  font-size: 12px;
+  border: 2px solid rgb(249, 44, 82);
+  border-radius: 20px 0 20px 0;
+  background-color: rgb(16, 16, 16);
+}
