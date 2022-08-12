@@ -22,3 +22,7 @@ Button {
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffffff;
 }
+.cardContainer {
+  background-color: #3a1b2b;
+  width: 500px;
+}

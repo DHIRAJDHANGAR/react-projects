@@ -6,7 +6,6 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
 } from "reactstrap";
 import "./LikeApp.css";
 
@@ -25,13 +24,15 @@ const LikeApp = () => {
         setUsers(data);
       });
   };
+
   const addToFavoriteList = (id) => {
     const addToFavorite = users.filter((item) => {
       return item.id == id;
     });
-    setFavorite([...notFavorite, addToFavorite]);
+    setFavorite([...notFavorite, ...addToFavorite]);
+    console.log(notFavorite);
   };
-  console.log("notFavorite::", notFavorite);
+
   return (
     <>
       <Row className="buttonClick">
@@ -47,39 +48,27 @@ const LikeApp = () => {
       <Row>
         <Col>
           {users.length > 0 && (
-            <ul>
+            <Col>
               {users.map((user) => (
-                <Card
-                  key={user.id}
-                  style={{ backgroundColor: "rgb(33, 236, 169)" }}
-                >
+                <Card key={user.id} className={"cardContainer"}>
                   <CardBody>
                     <CardTitle>
-                      {user.name}
-                      <hr />
-                      {user.username}
-                      <hr />
-                      {user.email}
+                      <div>{user.name}</div>
+                      <div>{user.username}</div>
+                      <div>{user.email}</div>
                     </CardTitle>
-                    <CardSubtitle>
-                      {user.address.street}
-                      <hr />
-                      {user.address.suite}
-                      <hr />
-                      {user.address.city}
-                      <hr />
-                      {user.address.zipcode}
-                      <hr />
-                      {user.address.geo.lat}
-                      <hr />
-                      {user.address.geo.lng}
-                    </CardSubtitle>
                     <CardText>
-                      {user.phone}
-                      {user.website}
-                      {user.company.name}
-                      {user.company.catchPhrase}
-                      {user.company.bs}
+                      <div>{user.address.street}</div>
+                      <div>{user.address.suite}</div>
+                      <div> {user.address.city}</div>
+                      <div>{user.address.zipcode}</div>
+                      <div>{user.address.geo.lat}</div>
+                      <div>{user.address.geo.lng}</div>
+                      <div>{user.phone}</div>
+                      <div>{user.website}</div>
+                      <div>{user.company.name}</div>
+                      <div> {user.company.catchPhrase}</div>
+                      <div>{user.company.bs}</div>
                     </CardText>
                     <Button onClick={() => addToFavoriteList(user.id)}>
                       Favorite
@@ -87,50 +76,38 @@ const LikeApp = () => {
                   </CardBody>
                 </Card>
               ))}
-            </ul>
+            </Col>
           )}
         </Col>
         <Col>
           {notFavorite.length > 0 && (
-            <ul>
+            <Col className="">
               {notFavorite.map((item) => (
-                <Card
-                  key={item.id}
-                  style={{ backgroundColor: "rgb(33, 236, 169)" }}
-                >
-                  {/* <CardBody>
+                <Card key={item.id} className="cardContainer">
+                  <CardBody>
                     <CardTitle>
-                      {item.name}
-                      <hr />
-                      {item.username}
-                      <hr />
-                      {item.email}
+                      <div>{item.name}</div>
+                      <div>{item.username}</div>
+                      <div>{item.email}</div>
                     </CardTitle>
-                    <CardSubtitle>
-                      {item.address.street}
-                      <hr />
-                      {item.address.suite}
-                      <hr />
-                      {item.address.city}
-                      <hr />
-                      {item.address.zipcode}
-                      <hr />
-                      {item.address.geo.lat}
-                      <hr />
-                      {item.address.geo.lng}
-                    </CardSubtitle>
                     <CardText>
-                      {item.phone}
-                      {item.website}
-                      {item.company.name}
-                      {item.company.catchPhrase}
-                      {item.company.bs}
+                      <div>{item.address.street}</div>
+                      <div>{item.address.suite}</div>
+                      <div>{item.address.city}</div>
+                      <div>{item.address.zipcode}</div>
+                      <div>{item.address.geo.lat}</div>
+                      <div>{item.address.geo.lng}</div>
+                      <div>{item.phone}</div>
+                      <div>{item.website}</div>
+                      <div>{item.company.name}</div>
+                      <div>{item.company.catchPhrase}</div>
+                      <div>{item.company.bs}</div>
                     </CardText>
                     <Button>Delete</Button>
-                  </CardBody> */}
+                  </CardBody>
                 </Card>
               ))}
-            </ul>
+            </Col>
           )}
         </Col>
       </Row>
@@ -139,3 +116,11 @@ const LikeApp = () => {
 };
 
 export default LikeApp;
+
+// const handelFavDelete = (id) => {
+//   setFav((fav) => {
+//     return fav.filter((arrElem, index) => {
+//       return index !== id
+//     })
+//   })
+// }

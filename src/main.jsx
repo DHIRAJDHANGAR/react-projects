@@ -7,6 +7,7 @@ import MyTodo from "./MyTodo/MyTodo";
 import MyTodoApp from "./MyTodoApp/MyTodoApp";
 import WebcamCapture from "./CamCapture/Index";
 import LikeApp from "./LikeApp/LikeApp";
+import PrintData from "./LikeApp/Try";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <MyTodo /> */}
     {/* <MyTodoApp /> */}
     {/* <WebcamCapture /> */}
-    <LikeApp />
+    {/* <LikeApp /> */}
+    <PrintData />
   </React.StrictMode>
 );
