@@ -5,11 +5,13 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyTodo from "./MyTodo/MyTodo";
 import MyTodoApp from "./MyTodoApp/MyTodoApp";
+import WebcamCapture from "./CamCapture/Index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <App/> */}
     {/* <MyTodo /> */}
-    <MyTodoApp />
+    {/* <MyTodoApp /> */}
+    <WebcamCapture />
   </React.StrictMode>
 );
