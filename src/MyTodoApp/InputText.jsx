@@ -12,7 +12,7 @@ const InputText = ({
       style={{
         border: "2px solid rgb(5, 248, 228)",
         borderRadius: "20px 0 20px 0 ",
-        height: "15vh",
+        height: "8vh",
       }}
       type={type}
       value={value}

@@ -24,5 +24,20 @@ Button {
 }
 .cardContainer {
   background-color: #3a1b2b;
+  width: 300px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.searchBoxContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.searchBox {
   width: 500px;
+  height: 30px;
 }

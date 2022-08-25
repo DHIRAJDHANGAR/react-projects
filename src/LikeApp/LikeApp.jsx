@@ -1,114 +1,125 @@
-import {
-  Button,
-  Card,
-  Col,
-  Row,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import { Button, Card, Col, Row, CardBody, Input } from "reactstrap";
+import { SpinnerDotted } from "spinners-react";
 import "./LikeApp.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 const LikeApp = () => {
   const [users, setUsers] = useState([]);
-  const [notFavorite, setFavorite] = useState([]);
+  const [search, setSearch] = useState("");
+  const [searchList, setSearchList] = useState([]);
+  const [favList, setFavList] = useState([]);
+  const [isActive, setActive] = useState("true");
 
-  const fetchData = () => {
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setUsers(data);
+  //       setSearchList(data); //filter list data
+  //     });
+  // }, []);
+
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         setUsers(data);
+        setSearch("");
       });
+  }, []);
+
+  //useMemo
+  const filteredUsers = useMemo(() => {
+    const filteredResult = users.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+    return filteredResult;
+  }, [search, users]);
+
+  // We'll retrive filter data from the users array
+  //input search list filter
+  // useEffect(() => {
+  //   if (search === "") {
+  //     setUsers([...searchList]);
+  //   }
+  //   const filterList = searchList.filter((elem) => {
+  //     if (elem.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+  //       return elem;
+  //     }
+  //   });
+  //   setUsers(filterList);
+  // }, [search]);
+
+  const addToFavList = (data) => {
+    const hasElementInFav = favList.some((item) => item.id === data.id);
+    if (hasElementInFav) {
+      return;
+    }
+    setFavList((prv) => {
+      return [...prv, data];
+    });
   };
 
-  const addToFavoriteList = (id) => {
-    const addToFavorite = users.filter((item) => {
-      return item.id == id;
+  const deleteFavList = (id) => {
+    const deleteTodo = favList.filter((item) => {
+      return item.id !== id;
     });
-    setFavorite([...notFavorite, ...addToFavorite]);
-    console.log(notFavorite);
+    setFavList(deleteTodo);
   };
 
   return (
     <>
-      <Row className="buttonClick">
-        <Button
-          className="startButton"
-          onClick={() => {
-            fetchData();
-          }}
-        >
-          Start
-        </Button>
+      <Row className="searchBoxContainer">
+        {/* <Input
+          type="text"
+          className="searchBox"
+          placeholder="Search name here"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        /> */}
+
+        {/* useMemo */}
+        <Input
+          style={{ width: "500px" }}
+          value={search}
+          type="search"
+          placeholder="Search here"
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </Row>
+
       <Row>
         <Col>
-          {users.length > 0 && (
-            <Col>
-              {users.map((user) => (
-                <Card key={user.id} className={"cardContainer"}>
-                  <CardBody>
-                    <CardTitle>
-                      <div>{user.name}</div>
-                      <div>{user.username}</div>
-                      <div>{user.email}</div>
-                    </CardTitle>
-                    <CardText>
-                      <div>{user.address.street}</div>
-                      <div>{user.address.suite}</div>
-                      <div> {user.address.city}</div>
-                      <div>{user.address.zipcode}</div>
-                      <div>{user.address.geo.lat}</div>
-                      <div>{user.address.geo.lng}</div>
-                      <div>{user.phone}</div>
-                      <div>{user.website}</div>
-                      <div>{user.company.name}</div>
-                      <div> {user.company.catchPhrase}</div>
-                      <div>{user.company.bs}</div>
-                    </CardText>
-                    <Button onClick={() => addToFavoriteList(user.id)}>
-                      Favorite
-                    </Button>
-                  </CardBody>
-                </Card>
-              ))}
-            </Col>
-          )}
+          <Col className="section">
+            {filteredUsers.map((user) => (
+              <Card key={user.id} className={"cardContainer"}>
+                <CardBody>
+                  <p>name: {user.name}</p>
+                  <p>username: {user.username}</p>
+                  <Button onClick={() => addToFavList(user)}>Favorite</Button>
+                  <Button onClick={() => deleteFavList(user.id)}>Delete</Button>
+                </CardBody>
+              </Card>
+            ))}
+          </Col>
         </Col>
         <Col>
-          {notFavorite.length > 0 && (
-            <Col className="">
-              {notFavorite.map((item) => (
-                <Card key={item.id} className="cardContainer">
-                  <CardBody>
-                    <CardTitle>
-                      <div>{item.name}</div>
-                      <div>{item.username}</div>
-                      <div>{item.email}</div>
-                    </CardTitle>
-                    <CardText>
-                      <div>{item.address.street}</div>
-                      <div>{item.address.suite}</div>
-                      <div>{item.address.city}</div>
-                      <div>{item.address.zipcode}</div>
-                      <div>{item.address.geo.lat}</div>
-                      <div>{item.address.geo.lng}</div>
-                      <div>{item.phone}</div>
-                      <div>{item.website}</div>
-                      <div>{item.company.name}</div>
-                      <div>{item.company.catchPhrase}</div>
-                      <div>{item.company.bs}</div>
-                    </CardText>
-                    <Button>Delete</Button>
-                  </CardBody>
-                </Card>
-              ))}
-            </Col>
-          )}
+          <Col className="section">
+            {favList.map((item) => (
+              <Card key={item.id} className="cardContainer">
+                <CardBody>
+                  <p>name: {item.name}</p>
+                  <p>username: {item.username}</p>
+                  <Button onClick={() => deleteFavList(item.id)}>Delete</Button>
+                </CardBody>
+              </Card>
+            ))}
+          </Col>
         </Col>
       </Row>
     </>
@@ -116,11 +127,3 @@ const LikeApp = () => {
 };
 
 export default LikeApp;
-
-// const handelFavDelete = (id) => {
-//   setFav((fav) => {
-//     return fav.filter((arrElem, index) => {
-//       return index !== id
-//     })
-//   })
-// }
