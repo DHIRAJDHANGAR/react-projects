@@ -1,6 +1,6 @@
-import './App.css'
-import Header from './Information/Header';
-import RegisterUser from './RegisterCommon/ClassForm';
+import "./App.css";
+import Header from "./Information/Header";
+import RegisterUser from "./RegisterCommon/ClassForm";
 // import ArrowFunc from './Component/Arrowfunc';
 // import NormalFunction from './Component/Normalfunc';
 // import MyTag from './Component/ClassComp';
@@ -8,9 +8,9 @@ import RegisterUser from './RegisterCommon/ClassForm';
 function App() {
   return (
     <>
-    <RegisterUser/>
+      <RegisterUser />
     </>
   );
-};
+}
 
 export default App;
