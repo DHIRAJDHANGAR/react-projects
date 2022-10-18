@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
-// import "./index.css";
+import "./index.css";
 import MyTodo from "./MyTodo/MyTodo";
 import MyTodoApp from "./MyTodoApp/MyTodoApp";
 import WebcamCapture from "./CamCapture/Index";
@@ -19,7 +19,9 @@ import NavigationOrder from "./ReactNavigations/NavigationOrder";
 import NavigationNotFound from "./ReactNavigations/NavigationNotFound";
 import PathparamsV1 from "./NavigationsParams/PathParamsV1";
 import PathParamsV2 from "./NavigationsParams/PathParamsV2";
-
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import FirstComp from "./OrderCard";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <App /> */}
@@ -49,17 +51,23 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* React Navigations */}
 
     {/** React Navigations Params */}
-    <BrowserRouter>
-      <Routes>
-        {/**Main Param */}
-        <Route path="/" element={<PathparamsV1 />}></Route>
-        <Route
-          path="/:id/:myname/:myusername"
-          element={<PathParamsV2 />}
-        ></Route>
-        {/**Navigation Param Data */}
-      </Routes>
-    </BrowserRouter>
+    {/* <BrowserRouter> */}
+    {/* <Routes> */}
+    {/**Main Param */}
+    {/* <Route path="/" element={<PathparamsV1 />}></Route> */}
+    {/* <Route */}
+    {/* path="/:id/:myname/:myusername" */}
+    {/* element={<PathParamsV2 />} */}
+    {/* ></Route> */}
+    {/**Navigation Param Data */}
+    {/* </Routes> */}
+    {/* </BrowserRouter> */}
     {/** React Navigations Params */}
+    <>
+      {/* <Provider store={store}>
+        <FirstComp />
+      </Provider> */}
+      <App />
+    </>
   </React.StrictMode>
 );
