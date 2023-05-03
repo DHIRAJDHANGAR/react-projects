@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
-// import "./index.css";
+import "./index.css";
 import MyTodo from "./MyTodo/MyTodo";
 import MyTodoApp from "./MyTodoApp/MyTodoApp";
 import WebcamCapture from "./CamCapture/Index";
@@ -19,9 +19,22 @@ import NavigationOrder from "./ReactNavigations/NavigationOrder";
 import NavigationNotFound from "./ReactNavigations/NavigationNotFound";
 import PathparamsV1 from "./NavigationsParams/PathParamsV1";
 import PathParamsV2 from "./NavigationsParams/PathParamsV2";
+import FilterAPI from "./FilterAPI/Usememo";
+import ProductDetails from "./ReactRoutingParams/ProductDetails";
+import ProductList from "./ReactRoutingParams/ProductList";
+// import OTPHome from "./OTPVarification/OTPHome";
+import { Provider } from "react-redux";
+import Redux1 from "./Redux/redux1";
+import { store } from "./Redux/store";
+import Calculatore from "./Redux/Calculatore";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Provider store={store}>
+      {/* <Redux1 /> */}
+      <Calculatore />
+    </Provider>
+    {/* <FilterAPI /> */}
     {/* <App /> */}
     {/* <MyTodo /> */}
     {/* <MyTodoApp /> */}
@@ -49,17 +62,22 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* React Navigations */}
 
     {/** React Navigations Params */}
-    <BrowserRouter>
-      <Routes>
-        {/**Main Param */}
-        <Route path="/" element={<PathparamsV1 />}></Route>
-        <Route
+    {/* <BrowserRouter> */}
+    {/* <Routes> */}
+    {/**Main Param */}
+    {/* <Route path="/" element={<PathparamsV1 />}></Route> */}
+    {/* <Route
           path="/:id/:myname/:myusername"
           element={<PathParamsV2 />}
-        ></Route>
-        {/**Navigation Param Data */}
-      </Routes>
-    </BrowserRouter>
+        ></Route> */}
+    {/* <Route
+          path="/product-details/:meraProductId"
+          element={<ProductDetails />}
+        ></Route> */}
+    {/* <Route path="/" element={<ProductList />}></Route> */}
+    {/**Navigation Param Data */}
+    {/* </Routes> */}
+    {/* </BrowserRouter> */}
     {/** React Navigations Params */}
   </React.StrictMode>
 );

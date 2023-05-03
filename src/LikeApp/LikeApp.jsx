@@ -71,7 +71,7 @@ const LikeApp = () => {
     });
     setFavList(deleteTodo);
   };
-
+  console.log("favList : ", favList);
   return (
     <>
       <Row className="searchBoxContainer">

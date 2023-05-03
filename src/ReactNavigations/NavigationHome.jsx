@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 const NavigationHome = () => {
   return (
     <>
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <Link to={"/about"} class="nav-link">
+      <ul className="nav nav-pills">
+        <li className="nav-item">
+          <Link to={"/about"} className="nav-link">
             About
           </Link>
         </li>
-        <li class="nav-item">
-          <Link to={"/contact"} class="nav-link">
+        <li className="nav-item">
+          <Link to={"/contact"} className="nav-link">
             Contact
           </Link>
         </li>
-        <li class="nav-item">
-          <Link to={"/order"} class="nav-link">
+        <li className="nav-item">
+          <Link to={"/order"} className="nav-link">
             Order
           </Link>
         </li>
-        <li class="nav-item">
-          <Link to={"/notFound"} class="nav-link">
+        <li className="nav-item">
+          <Link to={"/notFound"} className="nav-link">
             Open Any Profile
           </Link>
         </li>
