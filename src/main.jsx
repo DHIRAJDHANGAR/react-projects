@@ -19,6 +19,7 @@ import NavigationOrder from "./ReactNavigations/NavigationOrder";
 import NavigationNotFound from "./ReactNavigations/NavigationNotFound";
 import PathparamsV1 from "./NavigationsParams/PathParamsV1";
 import PathParamsV2 from "./NavigationsParams/PathParamsV2";
+<<<<<<< HEAD
 import FilterAPI from "./FilterAPI/Usememo";
 import ProductDetails from "./ReactRoutingParams/ProductDetails";
 import ProductList from "./ReactRoutingParams/ProductList";
@@ -28,6 +29,11 @@ import Redux1 from "./Redux/redux1";
 import { store } from "./Redux/store";
 import Calculatore from "./Redux/Calculatore";
 
+=======
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import FirstComp from "./OrderCard";
+>>>>>>> 2cb5391743a8e684349cb7b9458aaebdd5238e9c
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
@@ -66,6 +72,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <Routes> */}
     {/**Main Param */}
     {/* <Route path="/" element={<PathparamsV1 />}></Route> */}
+<<<<<<< HEAD
     {/* <Route
           path="/:id/:myname/:myusername"
           element={<PathParamsV2 />}
@@ -75,9 +82,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={<ProductDetails />}
         ></Route> */}
     {/* <Route path="/" element={<ProductList />}></Route> */}
+=======
+    {/* <Route */}
+    {/* path="/:id/:myname/:myusername" */}
+    {/* element={<PathParamsV2 />} */}
+    {/* ></Route> */}
+>>>>>>> 2cb5391743a8e684349cb7b9458aaebdd5238e9c
     {/**Navigation Param Data */}
     {/* </Routes> */}
     {/* </BrowserRouter> */}
     {/** React Navigations Params */}
+    <>
+      {/* <Provider store={store}>
+        <FirstComp />
+      </Provider> */}
+      <App />
+    </>
   </React.StrictMode>
 );

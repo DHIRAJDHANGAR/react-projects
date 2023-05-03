@@ -9,12 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@reduxjs/toolkit": "^1.9.5",
+=======
+    "@reduxjs/toolkit": "^1.8.5",
+>>>>>>> 2cb5391743a8e684349cb7b9458aaebdd5238e9c
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-redux": "^8.0.5",
+=======
+    "react-redux": "^8.0.2",
+>>>>>>> 2cb5391743a8e684349cb7b9458aaebdd5238e9c
     "react-router-dom": "^6.3.0",
     "react-webcam": "^7.0.1",
     "reactstrap": "^9.1.3",

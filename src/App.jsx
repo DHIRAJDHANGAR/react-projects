@@ -8,7 +8,7 @@ import RegisterUser from "./RegisterCommon/ClassForm";
 function App() {
   return (
     <>
-      <RegisterUser />
+      {/* <RegisterUser /> */}
     </>
   );
 }
